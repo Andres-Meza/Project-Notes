@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    image: my-node-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./docker: /app/docker
+    environment:
+      - NODE_ENV = production
+    command: ["npm", "start"]
+    
